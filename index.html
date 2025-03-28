@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爻算 - 命运解析</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入Three.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 输入页面 -->
+        <div id="input-page" class="page active">
+            <h1 class="title">爻<br>算</h1>
+            <p class="subtitle">输入你的生辰，洞见一丝天机</p>
+            <div class="input-group">
+                <label for="birthdate">公历生日:</label>
+                <input type="date" id="birthdate" name="birthdate">
+            </div>
+            <button id="submit-btn" class="btn">开始推算</button>
+        </div>
+
+        <!-- 加载页面 -->
+        <div id="loading-page" class="page">
+            <div class="loader">
+                <div class="loader-inner"></div>
+            </div>
+            <p class="loading-text">正在连接宇宙意识，解析命运编码...</p>
+        </div>
+
+        <!-- 结果页面 -->
+        <div id="result-page" class="page">
+            <h2 class="result-title">你的爻像：<span id="yao-symbol">[ 卦象 ]</span></h2>
+            <div class="result-card">
+                <!-- 3D效果区域 -->
+                <div class="effect-container">
+                    <div id="three-container"></div>
+                </div>
+                <p class="result-text" id="result-interpretation">
+                    "别看了，你的命就是块砖，哪里需要哪里搬... 还好，是块金砖。"
+                </p>
+            </div>
+            <div class="button-group">
+                <button id="share-btn" class="btn btn-secondary">分享结果</button>
+                <button id="unlock-btn" class="btn">解锁深度解读 (¥3)</button>
+            </div>
+            
+            <!-- 独立的破命按钮，突出显示 -->
+            <div class="break-fate-container">
+                <button id="break-fate-btn" class="btn btn-rebel">我命由我不由天，给我 破！</button>
+            </div>
+            
+            <button id="back-btn" class="btn btn-link">返回重算</button>
+        </div>
+
+        <!-- 海报预览弹窗 -->
+        <div id="poster-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>你的命运海报</h3>
+                <div id="poster-container">
+                    <!-- 海报将在这里生成 -->
+                </div>
+                <button id="download-poster" class="btn">保存海报</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="threeScene.js"></script>
+</body>
+</html> 
